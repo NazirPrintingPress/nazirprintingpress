@@ -7,7 +7,7 @@
     <meta name="description" content="Nazir Printing Press - 3D Printing Solutions">
     <title>Nazir Printing Press | 3D Printing Solutions</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
 </head>
 
 <body>
@@ -63,21 +63,22 @@
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <p>Have questions or ready to start a project? Reach out to us today!</p>
-        <form action="mailto:socials.almanac148@passmail.net" method="post" enctype="text/plain">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <!-- Google reCAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="6LdYLwYrAAAAAGSD2iB6jPNd-VR-S40yol5lSlzy"></div>
-
-            <button type="submit" class="cta-button">Send Message</button>
+        <form
+            action="https://formspree.io/f/xanepyoq"
+            method="POST"
+        >
+            <label>
+                Your email:
+                <input type="email" name="email">
+            </label>
+            <label>
+                Your message:
+                <textarea name="message"></textarea>
+            </label>
+            <!-- your other form fields go here -->
+            <button type="submit">Send</button>
         </form>
+        
     </section>
 
     <!-- Footer -->
