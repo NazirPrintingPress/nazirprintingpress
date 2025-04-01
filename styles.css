@@ -115,9 +115,8 @@ form textarea {
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    height: 100px;
+    height: 150px;
     font-size: 1em;
-    resize:unset;
     transition: border-color 0.3s ease;
 }
 
