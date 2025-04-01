@@ -43,15 +43,15 @@
     <section id="services" class="services">
         <h2>Our 3D Printing Services</h2>
         <div class="service-cards">
-            <div class="service-card">
+            <div class="service-card" onclick="addSubjectToMessage('Prototyping')">
                 <h3>Prototyping</h3>
                 <p>Rapid prototyping with high accuracy to bring your ideas to life.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" onclick="addSubjectToMessage('Custom Models')">
                 <h3>Custom Models</h3>
                 <p>We create personalized 3D models for any project or design concept.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" onclick="addSubjectToMessage('Industrial Parts')">
                 <h3>Industrial Parts</h3>
                 <p>Manufacturing durable industrial components with 3D printing technology.</p>
             </div>
@@ -84,6 +84,15 @@
             <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
         </div>
     </footer>
+    <script>
+        function addSubjectToMessage(subject){
+            //Get the message texarea element
+            const messageField =document.getElementById('message');
+            //set the value of the message field to include the subject
+            messageField.value= `Subject: ${subject}\n\n Please provide mroe details about this service:`;
+
+        }
+    </script>
 </body>
 
 </html>
