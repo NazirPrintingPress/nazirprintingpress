@@ -62,7 +62,7 @@
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <p>Have questions or ready to start a project? Reach out to us today!</p>
-        <form action="mailto:socials.almanac148@passmail.net" method="post" enctype="text/plain">
+        <form action="send-email.php" method="post">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" required>
 
@@ -72,8 +72,13 @@
             <label for="message">Your Message</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
+            <!-- Google reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
             <button type="submit" class="cta-button">Send Message</button>
         </form>
+
+        
     </section>
 
     <!-- Footer -->
