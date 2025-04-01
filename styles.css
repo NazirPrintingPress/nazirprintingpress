@@ -145,6 +145,10 @@ footer {
     padding: 10px 0;
 }
 
+footer .social-media {
+    margin-top: 10px; /* Adds space between text and social media links */
+}
+
 footer .social-media a {
     margin: 0 10px;
     color: white;
