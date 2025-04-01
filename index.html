@@ -67,13 +67,13 @@
             action="https://formspree.io/f/xanepyoq"
             method="POST"
         >
-            <label>
+            <label for="email">
                 Your email:
-                <input type="email" name="email">
+                <input type="email" id="email" name="email" required>
             </label>
-            <label>
+            <label for="message">
                 Your message:
-                <textarea name="message"></textarea>
+                <textarea id="message" name="message" required></textarea>
             </label>
             <!-- your other form fields go here -->
             <button type="submit">Send</button>

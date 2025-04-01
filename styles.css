@@ -1,4 +1,15 @@
 /* styles.css */
+/* Global Reset and Basic Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}   
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -90,6 +101,8 @@ form button {
     border: none;
     cursor: pointer;
 }
+.cta-button:hover {
+    background-color: #FF4500; /* Darker orange for hover effect */
 
 footer {
     text-align: center;
@@ -97,9 +110,62 @@ footer {
     color: white;
     padding: 10px 0;
 }
+.about, .services, .contact {
+    background-color: #f4f4f4;
+}
 
+.services .service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Make the layout responsive */
+    gap: 20px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease; /* Add animation on hover */
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Hover effect to lift card */
+}
 footer .social-media a {
     margin: 0 10px;
     color: white;
     text-decoration: none;
+}
+footer .social-media a:hover {
+    color: #FF5733; /* Hover effect for social media links */
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        text-align: center;
+    }
+
+    .services .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 80%; /* Service cards take more space on smaller screens */
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+    }
+
+    footer .social-media {
+        text-align: center;
+    }
 }
