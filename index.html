@@ -7,6 +7,8 @@
     <meta name="description" content="Apple Industries - 3D Printing Solutions">
     <title>Nazir Printing Press | 3D Printing Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Contact Form with reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -72,9 +74,13 @@
             <label for="message">Your Message</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
+            <!-- Google reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6LdYLwYrAAAAAGSD2iB6jPNd-VR-S40yol5lSlzy"></div>
             <button type="submit" class="cta-button">Send Message</button>
         </form>
+        
     </section>
+    
 
     <!-- Footer -->
     <footer>
