@@ -1,43 +1,3 @@
-<?php
-// Send email if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // reCAPTCHA validation
-    $recaptcha_secret = 'YOUR_SECRET_KEY';
-    $recaptcha_response = $_POST['g-recaptcha-response'];
-    
-    // Verify the CAPTCHA response
-    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
-    $responseKeys = json_decode($response, true);
-
-    // Check if CAPTCHA was successful
-    if (intval($responseKeys["success"]) !== 1) {
-        die('Please complete the CAPTCHA.');
-    }
-
-    // Sanitize and validate form data
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
-
-    // Validate email format
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die('Invalid email format.');
-    }
-
-    // Prepare the email content
-    $to = 'your-email@example.com';  // Your email address
-    $subject = 'New Message from Contact Form';
-    $body = "Name: $name\nEmail: $email\nMessage: $message";
-    $headers = "From: $email";
-
-    // Send the email
-    if (mail($to, $subject, $body, $headers)) {
-        echo 'Message sent successfully.';
-    } else {
-        echo 'Failed to send the message. Please try again.';
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Your Message"></textarea>
 
             <!-- Google reCAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            <div class="g-recaptcha" data-sitekey=6LdYLwYrAAAAAGSD2iB6jPNd-VR-S40yol5lSlzy></div>
 
             <button type="submit" class="cta-button">Send Message</button>
         </form>
