@@ -1,4 +1,4 @@
-?php
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Your reCAPTCHA secret key
     $secret = 6LdYLwYrAAAAABVfODTCnSoRUYfgAvtnMDnDRXWN;
