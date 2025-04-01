@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "post") {
     // Your reCAPTCHA secret key
     $secret = 6LdYLwYrAAAAABVfODTCnSoRUYfgAvtnMDnDRXWN;
     $response = $_POST['g-recaptcha-response'];
