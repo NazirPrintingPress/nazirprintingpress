@@ -1,3 +1,44 @@
+<?php
+// Send email if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // reCAPTCHA validation
+    $recaptcha_secret = 'YOUR_SECRET_KEY';
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+    
+    // Verify the CAPTCHA response
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
+    $responseKeys = json_decode($response, true);
+
+    // Check if CAPTCHA was successful
+    if (intval($responseKeys["success"]) !== 1) {
+        die('Please complete the CAPTCHA.');
+    }
+
+    // Sanitize and validate form data
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING);
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die('Invalid email format.');
+    }
+
+    // Prepare the email content
+    $to = 'your-email@example.com';  // Your email address
+    $subject = 'New Message from Contact Form';
+    $body = "Name: $name\nEmail: $email\nMessage: $message";
+    $headers = "From: $email";
+
+    // Send the email
+    if (mail($to, $subject, $body, $headers)) {
+        echo 'Message sent successfully.';
+    } else {
+        echo 'Failed to send the message. Please try again.';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +48,8 @@
     <meta name="description" content="Apple Industries - 3D Printing Solutions">
     <title>Nazir Printing Press | 3D Printing Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -27,7 +70,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Pushing the Future of 3D Printing to your door</h2>
+            <h2>Pushing the Future of 3D Printing to Your Door</h2>
             <p>Your trusted partner for high-quality, custom 3D prints and lithoplanes for gifts.</p>
             <a href="#services" class="cta-button">Explore Our Services</a>
         </div>
@@ -62,15 +105,18 @@
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <p>Have questions or ready to start a project? Reach out to us today!</p>
-        <form action="mailto:socials.almanac148@passmail.net" method="post" enctype="text/plain">
+        <form action="contact.php" method="post">
             <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required aria-required="true" placeholder="Your Name">
 
             <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required aria-required="true" placeholder="Your Email">
 
             <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Your Message"></textarea>
+
+            <!-- Google reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 
             <button type="submit" class="cta-button">Send Message</button>
         </form>
