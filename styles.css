@@ -103,6 +103,9 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add animation on hover */
     cursor: pointer;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .service-card:hover {
