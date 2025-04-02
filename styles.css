@@ -125,6 +125,8 @@ section {
     left: 0;
     opacity: 0;
     transition: opacity 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* Show the hover image on hover */
 .service-card:hover .hover-image {
