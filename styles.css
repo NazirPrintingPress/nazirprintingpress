@@ -154,6 +154,13 @@ form textarea {
     font-size: 1em;
     transition: border-color 0.3s ease;
 }
+/* Specific styles for email input */
+form input[type="email"]{
+    height: 40px;
+}
+form textarea {
+    height: 150px;
+}
 
 form input:focus,
 form textarea:focus {
