@@ -106,7 +106,14 @@ section {
 .service-card:hover {
     transform: translateY(-5px); /* Hover effect to lift card */
 }
-
+/* Image Styling */
+.service-image{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
 /* Form Elements */
 form input,
 form textarea {
