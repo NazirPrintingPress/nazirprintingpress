@@ -100,11 +100,14 @@ section {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 30%;
     text-align: center;
-    transition: transform 0.3s ease; /* Add animation on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add animation on hover */
+    cursor: pointer;
+    position: relative;
 }
 
 .service-card:hover {
     transform: translateY(-5px); /* Hover effect to lift card */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 /* Image Styling */
 .service-image{
@@ -113,6 +116,25 @@ section {
     height: auto;
     margin-bottom: 15px;
     border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+/* Show the hover image on hover */
+.service-card:hover .hover-image {
+    opacity: 1;
+}
+
+/* Make sure the default image is visible */
+.service-card .default-image {
+    opacity: 1;
+}
+
+/* Ensure only one image is visible */
+.service-card:hover .default-image {
+    opacity: 0;
 }
 /* Form Elements */
 form input,
