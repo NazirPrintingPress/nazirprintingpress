@@ -249,3 +249,31 @@ footer .social-media a:hover {
         text-align: center;
     }
 }
+.side-gallery {
+    position: fixed;
+    top: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.left-gallery {
+    left: 10px;
+}
+
+.right-gallery {
+    right: 10px;
+}
+
+.side-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.side-gallery img:hover {
+    transform: scale(1.05);
+}
