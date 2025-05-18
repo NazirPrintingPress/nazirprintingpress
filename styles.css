@@ -280,13 +280,21 @@ footer .social-media a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
+    background-color: #333;
+    color: #fff;
     border: none;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 30px;
     cursor: pointer;
-    padding: 10px;
+    opacity: 0.8;
+    transition: background 0.3s;
     z-index: 1;
+  }
+  
+  .carousel-btn:hover {
+    background-color: #000;
+    opacity: 1;
   }
   
   .carousel-btn.prev {
@@ -295,4 +303,9 @@ footer .social-media a:hover {
   
   .carousel-btn.next {
     right: 10px;
+  }
+  
+  .carousel-btn img {
+    height: 24px;
+    width: 24px;
   }
