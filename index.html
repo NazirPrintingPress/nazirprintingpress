@@ -124,17 +124,18 @@
 
         }
     </script>
+    <script>
+        let currentSlide = 0;
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-track img');
+      
+        function moveSlide(step) {
+          currentSlide = (currentSlide + step + slides.length) % slides.length;
+          track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
 </body>
 
 </html>
-<script>
-    let currentSlide = 0;
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-track img');
-  
-    function moveSlide(step) {
-      currentSlide = (currentSlide + step + slides.length) % slides.length;
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-  </script>
+
   
