@@ -249,31 +249,47 @@ footer .social-media a:hover {
         text-align: center;
     }
 }
-.side-gallery {
-    position: fixed;
-    top: 100px;
-    width: 100px;
+.carousel-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .carousel-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .carousel-track {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 10;
-}
-
-.left-gallery {
-    left: 10px;
-}
-
-.right-gallery {
-    right: 10px;
-}
-
-.side-gallery img {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-track img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.side-gallery img:hover {
-    transform: scale(1.05);
-}
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
